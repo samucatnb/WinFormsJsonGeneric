@@ -28,12 +28,16 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       this.button1 = new System.Windows.Forms.Button();
       this.button2 = new System.Windows.Forms.Button();
       this.txtCaixa = new System.Windows.Forms.TextBox();
       this.label1 = new System.Windows.Forms.Label();
       this.txtVisualiza = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
+      this.label3 = new System.Windows.Forms.Label();
+      this.txtNomeTela = new System.Windows.Forms.TextBox();
+      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.SuspendLayout();
       // 
       // button1
@@ -58,15 +62,16 @@
       // 
       // txtCaixa
       // 
-      this.txtCaixa.Location = new System.Drawing.Point(81, 86);
+      this.txtCaixa.Location = new System.Drawing.Point(21, 86);
       this.txtCaixa.Name = "txtCaixa";
-      this.txtCaixa.Size = new System.Drawing.Size(170, 23);
+      this.txtCaixa.Size = new System.Drawing.Size(113, 23);
       this.txtCaixa.TabIndex = 2;
+      this.toolTip1.SetToolTip(this.txtCaixa, "Informe número do Caixa para gravar no arquivo");
       // 
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(81, 68);
+      this.label1.Location = new System.Drawing.Point(21, 68);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(100, 15);
       this.label1.TabIndex = 3;
@@ -90,11 +95,37 @@
       this.label2.TabIndex = 5;
       this.label2.Text = "Retorno Leitura Arquivo Json";
       // 
+      // label3
+      // 
+      this.label3.AutoSize = true;
+      this.label3.Location = new System.Drawing.Point(21, 147);
+      this.label3.Name = "label3";
+      this.label3.Size = new System.Drawing.Size(113, 15);
+      this.label3.TabIndex = 7;
+      this.label3.Text = "Nome Tela Consulta";
+      // 
+      // txtNomeTela
+      // 
+      this.txtNomeTela.Location = new System.Drawing.Point(21, 165);
+      this.txtNomeTela.Name = "txtNomeTela";
+      this.txtNomeTela.Size = new System.Drawing.Size(230, 23);
+      this.txtNomeTela.TabIndex = 6;
+      this.toolTip1.SetToolTip(this.txtNomeTela, "Informe o Nome da Tela para gravar no arquivo");
+      // 
+      // toolTip1
+      // 
+      this.toolTip1.AutomaticDelay = 300;
+      this.toolTip1.IsBalloon = true;
+      this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+      this.toolTip1.ToolTipTitle = "Ajuda Sistema";
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.label3);
+      this.Controls.Add(this.txtNomeTela);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.txtVisualiza);
       this.Controls.Add(this.label1);
@@ -116,5 +147,8 @@
         private Label label1;
         private TextBox txtVisualiza;
         private Label label2;
+        private Label label3;
+        private TextBox txtNomeTela;
+        private ToolTip toolTip1;
     }
 }

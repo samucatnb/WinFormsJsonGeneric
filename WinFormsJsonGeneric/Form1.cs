@@ -10,7 +10,7 @@ namespace WinFormsJsonGeneric
     public Form1()
     {
       InitializeComponent();
-      json = new JsonGeneric<List<Caixa>>(this.Name);
+      json = new JsonGeneric<List<Caixa>>("FileConfigJsonByUser");
 
     }
 
@@ -19,18 +19,23 @@ namespace WinFormsJsonGeneric
       //encontra o item na lista e remove se existir
       int nCaixa = int.Parse(txtCaixa.Text);
       var listaArquivo = json.LeArquivoJson();
-      listaArquivo.RemoveAll(l => l.NumeroCaixa == nCaixa);
+      if (listaArquivo != null)
+      {
+        listaArquivo.RemoveAll(l => l.NumeroCaixa == nCaixa && l.NomeTelaConsulta == txtNomeTela.Text);
+        caixas = listaArquivo;
+
+      }
       //listaArquivo.Remove(item);
 
-      Caixa caixa = new Caixa(nCaixa);
+      Caixa caixa = new Caixa(nCaixa, txtNomeTela.Text);
       TelasConsultaEntidade paramTela = new TelasConsultaEntidade();
       paramTela.PesquisaCadaDigitacao = true;
       paramTela.TipoDeBusca = "EXATA";
       paramTela.ValorComboPesquisa = "Codigo";
       paramTela.ValorComboFiltro = "Todos";
 
-      caixas = listaArquivo;
-      caixa.TelaConsulta.Add(paramTela);
+      caixa.Parametros.Add(paramTela);
+ 
 
       caixas = caixas ?? new List<Caixa>(nCaixa);
 

@@ -11,19 +11,20 @@ namespace WinFormsJsonGeneric
   {
 
     public int NumeroCaixa { get; set; }
-    public IList<TelasConsultaEntidade> TelaConsulta { get; set; }
+    public string NomeTelaConsulta { get; set; }
+    public IList<TelasConsultaEntidade> Parametros { get; set; }
 
-    public Caixa(int _caixa)
+    public Caixa(int _caixa, string _nomeTelaConsulta)
     {
       this.NumeroCaixa = _caixa;
-      this.TelaConsulta = new List<TelasConsultaEntidade>();
+      this.NomeTelaConsulta = _nomeTelaConsulta;
+      this.Parametros = new List<TelasConsultaEntidade>();
 
     }
   }
 
   public class TelasConsultaEntidade
   {
-    public string NomeTelaConsulta { get; set; }
     public bool PesquisaCadaDigitacao { get; set; }
     public string ValorComboFiltro { get; set; }
     public string ValorComboPesquisa { get; set; }
@@ -33,16 +34,14 @@ namespace WinFormsJsonGeneric
 
     public TelasConsultaEntidade()
     {
-      this.NomeTelaConsulta = "";
       this.PesquisaCadaDigitacao = false;
       this.ValorComboFiltro = "";
       this.ValorComboPesquisa = "";
       this.TipoDeBusca = "";
       this.LarguraColsGrid = new Dictionary<string, string>();
     }
-    public TelasConsultaEntidade(string telaConsulta, bool pesquisaCadaDigitacao, string valorComboFiltro, string valorComboPesquisa, string tipoDeBusca, IDictionary<string, string> larguraColsGrid)
+    public TelasConsultaEntidade(bool pesquisaCadaDigitacao, string valorComboFiltro, string valorComboPesquisa, string tipoDeBusca, IDictionary<string, string> larguraColsGrid)
     {
-      NomeTelaConsulta = telaConsulta;
       PesquisaCadaDigitacao = pesquisaCadaDigitacao;
       ValorComboFiltro = valorComboFiltro;
       ValorComboPesquisa = valorComboPesquisa;
